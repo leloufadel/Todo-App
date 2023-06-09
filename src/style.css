@@ -15,7 +15,7 @@ body {
   gap: 0.5rem;
 }
 
-.todo-container {
+.list-container {
   width: 35%;
   min-height: 40vh;
   margin: 10vh 0;
@@ -41,11 +41,11 @@ body {
   border-bottom: 1px whitesmoke solid;
 }
 
-.todo-intro {
+.todo-intro-list {
   font-size: large;
 }
 
-.todo-intro-title {
+.todo-intro-list-title {
   font-weight: 500;
   opacity: 0.7;
   color: #474a53;
