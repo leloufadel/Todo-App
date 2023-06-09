@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>todo list</title>
-  </head>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <body>
-  <section class="list-container">
-    <div class="todo-list todo-intro-list">
-        <h4 class="todo-intro-list-title">TO DO list</h4>
-        <i class="fa-solid fa-rotate"></i></div>
-    <div class="todo-list todo-add">
-      <input type="text" placeholder="Add to your list">
-      <i class="fa-solid fa-arrow-left-long"></i>
-    </div>
-    <ul class="todo-group"></ul>
-
-      <button type="button" class="clear-todo"><span>Clear all completed</span></button>
-  </section>
+    <!-- Main section -->
+    <main>
+        <section class="todo-list-app">
+            <ul class="task-board">
+                <li class="To-task-title">
+                    <h2>Today's To Do</h2>
+                    <i class="fa fa-refresh"></i>
+                </li>
+                <li class="add-newtask">
+                    <form class="add-task-form">
+                        <input type="text" placeholder="Add your list" name="taskDescp" required>
+                        <button type="submit" class="add-task-btn">
+                            <i class="fa fa-sign-in"></i>
+                        </button>
+                    </form>
+                </li>
+                <li class="task-list">
+                    <ul class="task-list-group">
+                        <!-- Tasks will be rendered by javascript -->
+                    </ul>
+                </li>
+                <li class="clear-list-task">Clear all Completed</li>
+            </ul>
+        </section>
+    </main>
 </body>
-
 </html>
