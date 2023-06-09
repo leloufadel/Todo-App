@@ -1,50 +1,43 @@
 import './style.css';
+import TaskList from './modules/tasksMethods.js';
+import {
+  taskList, addForm, clearList,
+} from './modules/domElements.js';
 
-const mylist = [
-  {
-    description: 'Sport trainning',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Home cleaning',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Microverse Projects',
-    completed: true,
-    index: 3,
-  },
-  {
-    description: 'Cheking Projects',
-    completed: false,
-    index: 4,
-  },
-  {
-    description: 'COFEE CODING',
-    completed: true,
-    index: 5,
-  },
-];
+const app = new TaskList();
 
-const getmylist = () => {
-  const listGroup = document.querySelector('.todo-group');
-  mylist.map((item) => {
-    const listElement = document.createElement('li');
-    listElement.classList = 'todo-list todo-item';
-    listElement.id = `${item.index}`;
-    listElement.innerHTML = `
-          <button type="button" class=${
-  item.completed === true ? 'checked-button' : 'unchecked-button'
-}>
-          <i class="fa-solid fa-check"></i></button>
-          <input type="text" class=${
-  item.completed === true ? 'decoration' : 'undecoration'
-}  value="${item.description}">
-          <span class="todo-item-more"><i class="fa-solid fa-ellipsis-vertical"></i></span>
-      `;
-    return listGroup.appendChild(listElement);
-  });
-};
-window.addEventListener('load', getmylist);
+window.addEventListener('DOMContentLoaded', () => {
+  app.loadTasks();
+});
+
+// Add task event listener
+addForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  app.createTasklist(e.target.taskDescp.value);
+  e.target.taskDescp.value = '';
+});
+// Toggle edit function
+taskList.addEventListener('click', (e) => {
+  if (e.target.classList.contains('edit-task-btn')) {
+    app.modifyTask(e.target);
+    e.target.classList.toggle('dsp-none');
+    e.target.nextSibling.classList.toggle('dsp-none');
+  } else if (e.target.classList.contains('delete-task-btn')) {
+    app.deleteTask(e.target.parentElement);
+  }
+});
+
+// Task checkbox change event
+
+taskList.addEventListener('change', (e) => {
+  if (e.target.tagName === 'INPUT') {
+    e.target.nextSibling.classList.toggle('stk-tru');
+    app.updateTaskStat(Number(e.target.parentElement.getAttribute('data-index')));
+  }
+});
+
+// Clear list event listener
+
+clearList.addEventListener('click', () => {
+  app.clearDoneTask();
+});
