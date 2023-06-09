@@ -6,7 +6,7 @@ export default class TaskList {
     this.data = Array.from(tasksData);
   }
 
-  loadTasks() {
+  loadedTasks() {
     let liH = '';
     this.data.forEach((e) => {
       liH += `<li class="tasks" data-index=${e.index}><input type="checkbox" ${e.completed ? 'checked' : ''} value="${e.description}"><p class="task-description ${e.completed ? 'stk-tru' : ''}">${e.description}</p><i class="fa fa-ellipsis-v edit-task-btn"></i><i class="fa fa-trash delete-task-btn dsp-none"></i></li>`;
@@ -40,15 +40,15 @@ export default class TaskList {
 
     function taskDescptive(e) {
       // Toggling delete icon
-      function toggleDelBtn(e) {
+      function toggleD(e) {
         if (e.target !== tar.nextSibling) {
           tar.classList.toggle('dsp-none');
           tar.nextSibling.classList.toggle('dsp-none');
         }
-        document.removeEventListener('click', toggleDelBtn);
+        document.removeEventListener('click', toggleD);
       }
 
-      document.addEventListener('click', toggleDelBtn);
+      document.addEventListener('click', toggleD);
 
       e.target.removeAttribute('contenteditable');
       parentElem.style.background = 'white';
@@ -96,7 +96,7 @@ export default class TaskList {
     }
 
     // Displaying updated data
-    this.loadTasks();
+    this.loadedTasks();
 
     // Updating local storage
     const tmp = JSON.stringify(this.data);
@@ -129,6 +129,6 @@ export default class TaskList {
     localStorage.setItem('todoTasks', tmp);
 
     // Updating user interface
-    this.loadTasks();
+    this.loadedTasks();
   }
 }
