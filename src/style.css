@@ -30,7 +30,7 @@ main {
 }
 
 .todo-list-app {
-  width: 90%;
+  width: 95%;
   margin: auto;
   box-shadow: 0 0 0.5rem rgb(150, 142, 142);
   background-color: white;
@@ -42,7 +42,7 @@ main {
 }
 
 .task-board > li {
-  padding: 20px;
+  padding: 22px;
   border-bottom: 1.3px solid #ebebeb;
 }
 
@@ -79,7 +79,7 @@ li.tasks > i {
 }
 
 li.add-newtask {
-  padding: 10px 30px;
+  padding: 10px 24px;
 }
 
 .add-task > form {
