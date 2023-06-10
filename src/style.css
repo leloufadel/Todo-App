@@ -50,11 +50,11 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 li.task-list {
-  padding: 0 20px;
+  padding: 0 18px;
 }
 
 .task-list-group {
@@ -105,7 +105,7 @@ li.add-task input {
 .add-task-btn {
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .clear-list-task {
